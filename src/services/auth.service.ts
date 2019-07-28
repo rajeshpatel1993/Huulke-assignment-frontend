@@ -11,8 +11,8 @@ export class AuthService {
   constructor(private httpClient: HttpClient) {
 
   }
-  login(user:User) {
-    return this.httpClient.post(LOGIN_URL, user).pipe(map(user => {
+  login(email:string , password: string) {
+    return this.httpClient.post(LOGIN_URL, {email, password}).pipe(map(user => {
       if (user && user["token"]) {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('currentUser', JSON.stringify(user));
