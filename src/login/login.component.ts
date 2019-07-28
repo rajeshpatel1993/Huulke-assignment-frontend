@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this._formBuilder.group(
       {
-        username : ['', Validators.required],
+        email : ['', Validators.required],
         password: ['', Validators.required]
       }
     );
@@ -40,9 +40,9 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid){
       return;
     }
-    const {username,password} = this.loginForm.value;
+    const {email,password} = this.loginForm.value;
 
-    this._authService.login({username,password}) .pipe(first())
+    this._authService.login(email,password) .pipe(first())
       .subscribe(
         data => {
            this._router.navigate(["/home"]);

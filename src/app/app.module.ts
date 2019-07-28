@@ -14,6 +14,9 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 import { HshopComponent } from '../hshop/hshop.component';
 import {JwtInterceptor} from "../services/jwt.interceptor";
 import {ErrorInterceptor} from "../services/error.interceptor";
+import { BsDatepickerModule } from 'ngx-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import {ErrorInterceptor} from "../services/error.interceptor";
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
